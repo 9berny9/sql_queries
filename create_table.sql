@@ -72,7 +72,8 @@ LEFT JOIN food_prices_by_year fpy
     ON
     cpy.date_year = fpy.date_year
 LEFT JOIN GDP_by_year gby
-    ON cpy.date_year = gby.date_year 
+    ON cpy.date_year = gby.date_year
+WHERE average_food_price IS NOT NULL
 ORDER BY
     cpy.date_year
     , cpy.industry_branch_code
