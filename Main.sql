@@ -1,4 +1,4 @@
--- 1.   Rostou v pr?b?hu let mzdy ve všech odv?tvích, nebo v n?kterých klesají?
+-- 1.   Klesani nebo rust mezd za rok v procentech pro jednotlive odvetvi a vyhodnoceni vyraznych zmen
 WITH salary_difference_by_year AS (
     SELECT
         date_year
@@ -39,7 +39,7 @@ FROM
     salary_difference_by_year 
 ;
 
--- 2.  Kolik je možné si koupit litr? mléka a kilogram? chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?
+-- 2.  Pocet mnozstvi litru mleka a kilogramu chleba z prumerne vyplaty pro prvni a posledni zaznam
 WITH milk_bread_prices AS (
     SELECT
         date_year
@@ -90,8 +90,8 @@ FROM
     first_and_last_date 
 ;
 
--- 3.  KterÃƒÂ¡ kategorie potravin zdraÃ…Â¾uje nejpomaleji (je u nÃƒÂ­ nejniÃ…Â¾Ã…Â¡ÃƒÂ­ percentuÃƒÂ¡lnÃƒÂ­ meziroÃ„ï¿½nÃƒÂ­ nÃƒÂ¡rÃ…Â¯st)?
-WITH price_difference_by_year AS (
+-- 3. Mezirocni prumerny narust nebo klesani cen potravin v procentech a serazeny podle nejpomalejsiho rustu
+WITH     price_difference_by_year AS (
     SELECT
         date_year 
         , food_category_code
@@ -103,10 +103,10 @@ WITH price_difference_by_year AS (
         average_food_price - lag(average_food_price) OVER 
             (
             PARTITION BY food_category_code
-        ORDER BY
-            food_category_code ASC
-            , date_year ASC
-            )   AS price_growth_by_year
+                ORDER BY
+                    food_category_code ASC
+                    , date_year ASC
+                    )   AS price_growth_by_year
     FROM
         t_michal_bernatik_project_SQL_primary_final tmb
     WHERE food_category_code IS NOT NULL
@@ -127,7 +127,7 @@ SELECT
     , food_name
     , food_price_value
     , food_price_unit
-    , average_food_price
+    , round(avg(average_food_price),2) AS average_food_price_by_years 
     , round(avg(fpq.percent_growth),1) AS average_percent_growth
 FROM
     food_percent_growth fpq
@@ -138,7 +138,8 @@ ORDER BY
 ;
 
 
--- 4.Existuje rok, ve kterÃƒÂ©m byl meziroÃ„ï¿½nÃƒÂ­ nÃƒÂ¡rÃ…Â¯st cen potravin vÃƒÂ½raznÃ„â€º vyÃ…Â¡Ã…Â¡ÃƒÂ­ neÃ…Â¾ rÃ…Â¯st mezd (vÃ„â€ºtÃ…Â¡ÃƒÂ­ neÃ…Â¾ 10 %)?
+-- 4. Mezirocni procentualni narust nebo klesani prumerne vyplaty vsech odvetvi a ceny konkretni potraviny serazenych podle roku.
+--    Pokud je procentualni narust jedne z velicin vetsi nebo mensi jak 10, tak upozoroni na vyraznou zmenu
 WITH food_and_salary_average AS (
     SELECT 
         date_year
@@ -187,8 +188,7 @@ SELECT *
 FROM difference_percent
 ;
 
--- 5.  Má výška HDP vliv na změny ve mzdách a cenách potravin? 
--- Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+-- 5.  Mezirocni procentualni rust nebo klesani prumerne vyplaty vsech odvetvi, prumerne ceny vsech potravin a vysky HDP serazenych podle roku.
 WITH food_and_salary_average AS (
     SELECT 
         date_year
