@@ -1,4 +1,6 @@
-CREATE OR REPLACE
+-- from database dump by czechia_database_02_2022-202203041903.sql create table for working
+
+CREATE
 TABLE t_michal_bernatik_project_SQL_primary_final
 WITH czechia_payroll_by_year AS
 (
