@@ -14,3 +14,9 @@ Dále datová sada obsahuje **číselníky sdílených informací o ČR** (čís
 
 Záloha databáze, kterou budu používat se nachází v repozitáři pod názvem:   
 **_czechia_database_02_2022-202203041903.sql_**
+
+## Řešení výzkumných otázek
+V první řadě jsem vyfiltroval data, které nebudu potřebovat a spojil je do jedné tabulky, kterou budu používat pro řešení výzkumných otázek. Tabulka obsahuje pouze data podle datumu, které jsou dostupné pro všechny výzkumné otázky. Tabulka se nachází v repozitáři pod názvem   
+_**t_michal_bernatik_project_SQL_primary_final.sql**_
+
+### Sledované záznamy
