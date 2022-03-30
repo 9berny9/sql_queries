@@ -89,3 +89,50 @@ SELECT
 FROM
     first_and_last_date 
 ;
+
+-- 3. Mezirocni prumerny narust nebo klesani cen potravin v procentech a serazeny podle nejpomalejsiho rustu
+WITH     price_difference_by_year AS (
+    SELECT
+        date_year 
+        , food_category_code
+        , food_name
+        , food_price_value
+        , food_price_unit
+        , average_food_price
+        ,
+        average_food_price - lag(average_food_price) OVER 
+            (
+            PARTITION BY food_category_code
+                ORDER BY
+                    food_category_code ASC
+                    , date_year ASC
+                    )   AS price_growth_by_year
+    FROM
+        t_michal_bernatik_project_SQL_primary_final tmb
+    WHERE food_category_code IS NOT NULL
+    GROUP BY date_year, food_category_code
+    ORDER BY food_category_code, date_year
+)
+,
+food_percent_growth AS (
+    SELECT
+        *
+        ,
+        round( ((100 * price_growth_by_year) / average_food_price), 1) AS percent_growth
+    FROM
+        price_difference_by_year
+)
+SELECT
+    food_category_code
+    , food_name
+    , food_price_value
+    , food_price_unit
+    , round(avg(average_food_price),2) AS average_food_price_by_years 
+    , round(avg(fpq.percent_growth),1) AS average_percent_growth
+FROM
+    food_percent_growth fpq
+GROUP BY
+    food_category_code
+ORDER BY
+    average_percent_growth ASC
+;
