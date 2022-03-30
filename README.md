@@ -19,4 +19,10 @@ Záloha databáze, kterou budu používat se nachází v repozitáři pod názve
 V první řadě jsem vyfiltroval data, které nebudu potřebovat a spojil je do jedné tabulky, kterou budu používat pro řešení výzkumných otázek. Tabulka obsahuje pouze data podle datumu, které jsou dostupné pro všechny výzkumné otázky. Tabulka se nachází v repozitáři pod názvem   
 _**t_michal_bernatik_project_SQL_primary_final.sql**_
 
-### Sledované záznamy
+### Obsah pracovní tabulky
+Tabulka obsahuje data pro jednotlivé roky v daném pracovním odvětví, název potraviny a jeho průměrnou cenu a HDP konkrétního roku.   
+Tabulka je očištěná o nulové hodnoty a roky, které nemají záznamy pro všechny sledované veličiny (mzda, cena potraviny a HDP).
+
+### Výsledky výzkmných otázek
+Výstupy pro výzkumné otázky vychází z jednotlivých selectů, které jsou uloženy v **__main_answers.sql__** a každá otázka má pouze jeden SELECT. Jednotlivé výstupy a výsledky z těchto selectů jsou zpracováný v následujících odrážkách.
+#### 1) Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
