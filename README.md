@@ -141,3 +141,26 @@ date_year|food_category_code|food_name                  |average_gross_salary|av
      2017|            111201|Pšeničná mouka hladká      |               29736|             11.43|                 1789|                      0.4|                  6.0|                3.5|normal                    |
      2018|            111201|Pšeničná mouka hladká      |               31980|             11.44|                 2244|                     0.01|                  7.0|                0.1|normal                    |
 ```
+
+#### 5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+
+Výška HDP může mít vliv na mzdy a ceny potravin, ale ze zjištěných výsledků nelze vysledovat jednoznačný trend. Výška HDP rozhodně ovlivňuje jednotlivé ceny, ale museli bychom sledovat mnohem více ekonomických promněnných.
+
+```
+date_year|salary_percent_growth|food_percent_growth|GDP_percent_growth|
+---------+---------------------+-------------------+------------------+
+     2006|                     |                   |                  |
+     2007|                  6.4|                6.3|               5.3|
+     2008|                  7.5|                5.8|               2.6|
+     2009|                  3.1|               -6.9|              -4.9|
+     2010|                  2.0|                1.9|               2.4|
+     2011|                  2.2|                3.2|               1.7|
+     2012|                  3.0|                6.3|              -0.8|
+     2013|                 -1.6|                4.9|              -0.0|
+     2014|                  2.5|                0.7|               2.2|
+     2015|                  2.4|               -0.5|               5.1|
+     2016|                  3.5|               -1.2|               2.5|
+     2017|                  6.0|                8.8|               4.9|
+     2018|                  7.0|                2.1|               3.1|
+```
+
