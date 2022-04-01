@@ -73,7 +73,7 @@ date_year|food_category_code|food_name                  |food_price_value|food_p
 ```
 
 #### 3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
-Nejpomaleji ze všech potravin meziročně roste cena _Rajská jablek červená_, která průměrně za období 2006 až 2018 klesá o _**-3,85%**_.
+Nejpomaleji ze všech potravin meziročně roste cena _**Rajská jablek červená**_, která průměrně za období 2006 až 2018 klesá o _**-3,85%**_.
 Nejrychleji roste cena Testovin vaječných o 4,9%.
 
 ```
@@ -108,3 +108,36 @@ food_category_code|food_name                       |food_price_value|food_price_
             111602|Těstoviny vaječné               |             1.0|kg             |                      37.41|                   4.9|
 ```
 
+#### 4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
+Ve sloupci __significant_change_in_food__ je zobrazený výrazný nebo normální meziroční nárust ceny potraviny v závislosti na meziroční růst cen mezd. Pokud je meziroční nárust vyšší jak 10% zobrazuje se significant. Z výsledků lze vidět, že v některých rocích byl meziroční nárust velmi signifikantní. Například *Rýže loupaná dlouhozrná* roku 2008 zdražila procentuálně o 27% a mzda rostla o 7,5%, což odpovídá nárustu o 19,5%.
+
+```
+date_year|food_category_code|food_name                  |average_gross_salary|average_food_price|salary_growth_by_year|food_price_growth_by_year|salary_percent_growth|food_percent_growth|significant_change_in_food|
+---------+------------------+---------------------------+--------------------+------------------+---------------------+-------------------------+---------------------+-------------------+--------------------------+
+     2006|            111101|Rýže loupaná dlouhozrnná   |               20342|             21.29|                     |                         |                     |                   |                          |
+     2007|            111101|Rýže loupaná dlouhozrnná   |               21725|             23.86|                 1383|                     2.57|                  6.4|               10.8|normal                    |
+     2008|            111101|Rýže loupaná dlouhozrnná   |               23475|             32.69|                 1750|                     8.83|                  7.5|               27.0|significant               |
+     2009|            111101|Rýže loupaná dlouhozrnná   |               24238|              36.1|                  763|                     3.41|                  3.1|                9.4|normal                    |
+     2010|            111101|Rýže loupaná dlouhozrnná   |               24722|             33.93|                  484|                    -2.17|                  2.0|               -6.4|normal                    |
+     2011|            111101|Rýže loupaná dlouhozrnná   |               25284|             33.34|                  562|                    -0.59|                  2.2|               -1.8|normal                    |
+     2012|            111101|Rýže loupaná dlouhozrnná   |               26077|             34.04|                  793|                      0.7|                  3.0|                2.1|normal                    |
+     2013|            111101|Rýže loupaná dlouhozrnná   |               25671|             34.73|                 -406|                     0.69|                 -1.6|                2.0|normal                    |
+     2014|            111101|Rýže loupaná dlouhozrnná   |               26324|             35.31|                  653|                     0.58|                  2.5|                1.6|normal                    |
+     2015|            111101|Rýže loupaná dlouhozrnná   |               26960|             35.93|                  636|                     0.62|                  2.4|                1.7|normal                    |
+     2016|            111101|Rýže loupaná dlouhozrnná   |               27947|             36.52|                  987|                     0.59|                  3.5|                1.6|normal                    |
+     2017|            111101|Rýže loupaná dlouhozrnná   |               29736|              36.3|                 1789|                    -0.22|                  6.0|               -0.6|normal                    |
+     2018|            111101|Rýže loupaná dlouhozrnná   |               31980|             36.18|                 2244|                    -0.12|                  7.0|               -0.3|normal                    |
+     2006|            111201|Pšeničná mouka hladká      |               20342|              7.41|                     |                         |                     |                   |                          |
+     2007|            111201|Pšeničná mouka hladká      |               21725|              9.08|                 1383|                     1.67|                  6.4|               18.4|significant               |
+     2008|            111201|Pšeničná mouka hladká      |               23475|             12.98|                 1750|                      3.9|                  7.5|               30.0|significant               |
+     2009|            111201|Pšeničná mouka hladká      |               24238|              9.97|                  763|                    -3.01|                  3.1|              -30.2|significant               |
+     2010|            111201|Pšeničná mouka hladká      |               24722|              8.77|                  484|                     -1.2|                  2.0|              -13.7|significant               |
+     2011|            111201|Pšeničná mouka hladká      |               25284|             11.44|                  562|                     2.67|                  2.2|               23.3|significant               |
+     2012|            111201|Pšeničná mouka hladká      |               26077|             11.53|                  793|                     0.09|                  3.0|                0.8|normal                    |
+     2013|            111201|Pšeničná mouka hladká      |               25671|             13.34|                 -406|                     1.81|                 -1.6|               13.6|significant               |
+     2014|            111201|Pšeničná mouka hladká      |               26324|             13.12|                  653|                    -0.22|                  2.5|               -1.7|normal                    |
+     2015|            111201|Pšeničná mouka hladká      |               26960|             12.59|                  636|                    -0.53|                  2.4|               -4.2|normal                    |
+     2016|            111201|Pšeničná mouka hladká      |               27947|             11.03|                  987|                    -1.56|                  3.5|              -14.1|significant               |
+     2017|            111201|Pšeničná mouka hladká      |               29736|             11.43|                 1789|                      0.4|                  6.0|                3.5|normal                    |
+     2018|            111201|Pšeničná mouka hladká      |               31980|             11.44|                 2244|                     0.01|                  7.0|                0.1|normal                    |
+```
