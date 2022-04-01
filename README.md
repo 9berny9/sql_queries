@@ -8,6 +8,7 @@ Jako dodatečný materiál připravte i tabulku s HDP, GINI koeficientem a popul
 3) Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?
 4) Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (větší než 10 %)?
 5) Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo násdujícím roce výraznějším růstem?
+
 ### Vstupní data
 Pro odpovědi na otázky budu používat zálohu databáze, která obsahuje datové sady **primárnách tabulek** jako informace o mzdách, kalkulacích mezd, číselníky mezd, ceny potravin, kategorie potravit a vše za několikaleté období.   
 Dále datová sada obsahuje **číselníky sdílených informací o ČR** (číselníky krajů a regionů) a **dodatečné tabulky** (informace o všech zemí světa a jejich ekonomii)
@@ -164,3 +165,41 @@ date_year|salary_percent_growth|food_percent_growth|GDP_percent_growth|
      2018|                  7.0|                2.1|               3.1|
 ```
 
+### Dodatečný materiál pro evropské státy
+Pro srovnatelné období výzkumných otázek je připravena dodatečná tabulka všech evropských států. Tabulka je vytvořena ze stejné databáze a v repositáři pojmenovaná jako __*create_table_whole_world.sql*__
+
+Náhled do tabulky zde:
+```
+country               |continent|year|GDP             |gini|population|
+----------------------+---------+----+----------------+----+----------+
+Albania               |Europe   |2006|9767379279.88863|    | 2992547.0|
+Albania               |Europe   |2007|10351466806.2388|    | 2970017.0|
+Albania               |Europe   |2008|11127823665.7504|30.0| 2947314.0|
+Albania               |Europe   |2009|11500613161.6647|    | 2927519.0|
+Albania               |Europe   |2010|11926928505.5231|    | 2913021.0|
+Albania               |Europe   |2011|12230507222.1843|    | 2905195.0|
+Albania               |Europe   |2012|12403877841.0321|29.0| 2900401.0|
+Albania               |Europe   |2013|12528163103.1195|    | 2895092.0|
+Albania               |Europe   |2014|12750473701.7819|34.6| 2889104.0|
+Albania               |Europe   |2015|13033375121.5884|32.9| 2880703.0|
+Albania               |Europe   |2016|13465406059.6498|33.7| 2876101.0|
+Albania               |Europe   |2017|13977387390.5945|33.2| 2873457.0|
+Albania               |Europe   |2018|14546448944.4056|    | 2866376.0|
+Andorra               |Europe   |2006|3875142516.24022|    |   80995.0|
+Andorra               |Europe   |2007|3935330770.25056|    |   82682.0|
+Andorra               |Europe   |2008|3716558398.51518|    |   83860.0|
+Andorra               |Europe   |2009|3519475009.94299|    |   84461.0|
+Andorra               |Europe   |2010|3449966856.68832|    |   84454.0|
+Andorra               |Europe   |2011|3449688452.87021|    |   83748.0|
+Andorra               |Europe   |2012|3278085642.31738|    |   82427.0|
+Andorra               |Europe   |2013|3161792390.29564|    |   80770.0|
+Andorra               |Europe   |2014|3240978390.56079|    |   79213.0|
+Andorra               |Europe   |2015| 3287458570.8604|    |   77993.0|
+Andorra               |Europe   |2016|3409412700.51704|    |   77295.0|
+Andorra               |Europe   |2017|3421211719.47501|    |   76997.0|
+Andorra               |Europe   |2018|3475566750.62972|    |   77008.0|
+Austria               |Europe   |2006|380329113681.259|29.6| 8268641.0|
+Austria               |Europe   |2007|394505559258.526|30.6| 8295487.0|
+Austria               |Europe   |2008|400267011848.042|30.4| 8321496.0|
+Austria               |Europe   |2009|385198647266.611|31.5| 8343323.0|
+```
