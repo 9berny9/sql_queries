@@ -14,8 +14,7 @@ Pro odpovědi na otázky budu používat zálohu databáze, která obsahuje dato
 Dále datová sada obsahuje **číselníky sdílených informací o ČR** (číselníky krajů a regionů) a **dodatečné tabulky** (informace o všech zemí světa a jejich ekonomii)
 
 ## Řešení výzkumných otázek
-V první řadě jsem vyfiltroval data, které nebudu potřebovat a spojil je do jedné tabulky, kterou budu používat pro řešení výzkumných otázek. Tabulka obsahuje pouze data podle datumu, které jsou dostupné pro všechny výzkumné otázky. Tabulka se nachází v repozitáři pod názvem   
-_**t_michal_bernatik_project_SQL_primary_final.sql**_
+V první řadě jsem vyfiltroval data, které nebudu potřebovat a spojil je do jedné tabulky, kterou budu používat pro řešení výzkumných otázek. Tabulka obsahuje pouze data podle datumu, které jsou dostupné pro všechny výzkumné otázky. Dotaz tvořené tabulky se nachází v repozitáři s názvem _**create_table_czechia.sql**_.
 
 ### Obsah pracovní tabulky
 Tabulka obsahuje data pro jednotlivé roky v daném pracovním odvětví, název potraviny a jeho průměrnou cenu a HDP konkrétního roku.   
